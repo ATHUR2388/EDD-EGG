@@ -125,7 +125,7 @@
 
     <footer>
       ❤️ Powered by love | Estimating EDD & gestational age
-      </footer>
+      
      <footer> Developed by Athur C.O EAI-  Kitale </footer>
 
      
@@ -255,5 +255,4 @@
       `;
     }
   </script>
-</body>
-</html>
+
