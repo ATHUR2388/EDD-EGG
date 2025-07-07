@@ -29,6 +29,24 @@
       text-align: center;
     }
 
+    .graphic {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffe0e6;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .graphic svg {
+      width: 60px;
+      height: 60px;
+      fill: #ff4081;
+    }
+
     header h1 {
       margin: 0;
       font-size: 2em;
@@ -74,21 +92,6 @@
       color: red;
     }
 
-    .circle-img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid #ff4081;
-      margin-bottom: 1em;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .upload-label,
-    #uploadImage {
-      display: none;
-    }
-
     footer {
       margin-top: 2em;
       font-size: 0.9em;
@@ -98,12 +101,13 @@
 </head>
 <body>
   <div class="container">
-    <!-- Circular Image -->
-    <img src="OIP.webp" id="userImage" class="circle-img" alt="Pregnancy image" />
 
-    <!-- Hidden Upload Field -->
-    <label class="upload-label">Upload Your Image:</label>
-    <input type="file" id="uploadImage" accept="image/*" />
+    <!-- Pregnancy SVG Graphic -->
+    <div class="graphic">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <path d="M42 20a10 10 0 1 0-20 0 10 10 0 0 0 20 0Zm0 0c0 3-2 8-6 8s-6-5-6-8c0 0-8 12-8 20s6 12 14 12 14-4 14-12-8-20-8-20Z" />
+      </svg>
+    </div>
 
     <header>
       <h1>Pregnancy Calculator</h1>
@@ -174,8 +178,3 @@
   </script>
 </body>
 </html>
-
-
-    
-
-  
