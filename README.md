@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -84,15 +84,9 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
-    .upload-label {
-      font-size: 0.9em;
-      margin-top: 0.5em;
-      display: block;
-      color: #444;
-    }
-
-    input[type="file"] {
-      margin: 0.5em 0;
+    .upload-label,
+    #uploadImage {
+      display: none;
     }
 
     footer {
@@ -105,9 +99,9 @@
 <body>
   <div class="container">
     <!-- Circular Image -->
-    <img src="https://i.imgur.com/NjaImPg.jpg" id="userImage" class="circle-img" alt="Your image" />
+    <img src="OIP.webp" id="userImage" class="circle-img" alt="Pregnancy image" />
 
-    <!-- Image Upload -->
+    <!-- Hidden Upload Field -->
     <label class="upload-label">Upload Your Image:</label>
     <input type="file" id="uploadImage" accept="image/*" />
 
@@ -124,24 +118,12 @@
     <div class="error" id="error"></div>
 
     <footer>
-      ❤️ Powered by love | Estimating EDD & gestational age
-      
-     <footer> Developed by Athur C.O EAI-  Kitale </footer>
-
-     
+      ❤️ Powered by love | Estimating EDD & gestational age <br>
+      Developed by Athur C.O EAI - Kitale
+    </footer>
+  </div>
 
   <script>
-    // Handle image upload and preview
-    document.getElementById("uploadImage").addEventListener("change", function(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        document.getElementById("userImage").src = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    });
-
     function calculate() {
       const input = document.getElementById("lmp").value.trim();
       const errorDiv = document.getElementById("error");
@@ -192,67 +174,8 @@
   </script>
 </body>
 </html>
-    </footer>
-  </div>
 
-  <script>
-    // Handle image upload and preview
-    document.getElementById("uploadImage").addEventListener("change", function(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        document.getElementById("userImage").src = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    });
 
-    function calculate() {
-      const input = document.getElementById("lmp").value.trim();
-      const errorDiv = document.getElementById("error");
-      const outputDiv = document.getElementById("output");
-      errorDiv.textContent = "";
-      outputDiv.textContent = "";
+    
 
-      const parts = input.split('/');
-      if (parts.length !== 3) {
-        errorDiv.textContent = "Use format: DD/MMM/YYYY (e.g. 06/Jul/2025)";
-        return;
-      }
-
-      const [day, monthStr, year] = parts;
-      const months = {
-        Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
-        Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
-      };
-
-      const month = months[monthStr];
-      if (month === undefined) {
-        errorDiv.textContent = "Invalid month. Use Jan, Feb, Mar, etc.";
-        return;
-      }
-
-      const lmpDate = new Date(parseInt(year), month, parseInt(day));
-      if (isNaN(lmpDate.getTime())) {
-        errorDiv.textContent = "Invalid date. Please double-check.";
-        return;
-      }
-
-      const edd = new Date(lmpDate);
-      edd.setMonth(edd.getMonth() + 9);
-      edd.setDate(edd.getDate() + 7);
-
-      const today = new Date();
-      const diffTime = today - lmpDate;
-      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-      const weeks = Math.floor(diffDays / 7);
-      const days = diffDays % 7;
-
-      outputDiv.innerHTML = `
-        <strong>Expected Date of Delivery (EDD):</strong><br> ${edd.toDateString()}<br><br>
-        <strong>Gestational Age:</strong><br> ${weeks} weeks and ${days} days<br><br>
-        <em>Today is:</em> ${today.toDateString()}
-      `;
-    }
-  </script>
-
+  
