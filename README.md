@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -125,6 +125,8 @@
 
     <footer>
       ❤️ Powered by love | Estimating EDD & gestational age
+      </footer>
+     <footer> Developed by Athur C.O EAI-  Kitale </footer>
 
      
 
